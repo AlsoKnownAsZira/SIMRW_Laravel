@@ -1,8 +1,12 @@
+<head>
+    <!-- Other head elements -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
 <div class="card-container">
     <x-filament::widget>
         <x-filament::card class="card">
             <div class="filament-widgets-user-overview">
-                <h1><b>WARGA</b></h1>
+                <h1><i class="fas fa-users"></i> <b>WARGA</b></h1>
                 <p>Total Warga : {{ $userCount }}</p>
             </div>
         </x-filament::card>
@@ -10,7 +14,7 @@
     <x-filament::widget>
         <x-filament::card class="card">
             <div class="filament-widgets-user-overview">
-                <h1><b>ANGGARAN</b></h1>
+                <h1><i class="fas fa-money-bill-wave"></i> <b>ANGGARAN</b></h1>
                 <p>Total Anggaran : {{ $userCount }}</p>
             </div>
         </x-filament::card>
@@ -18,7 +22,7 @@
     <x-filament::widget>
         <x-filament::card class="card">
             <div class="filament-widgets-user-overview">
-                <h1><b>INVENTORI</b></h1>
+                <h1><i class="fas fa-warehouse"></i> <b>INVENTORI</b></h1>
                 <p>Total Inventori : {{ $userCount }}</p>
             </div>
         </x-filament::card>
@@ -26,7 +30,7 @@
     <x-filament::widget>
         <x-filament::card class="card">
             <div class="filament-widgets-user-overview">
-                <h1><b>SURAT MASUK</b></h1>
+                <h1><i class="fas fa-envelope"></i> <b>SURAT MASUK</b></h1>
                 <p>Total Surat : {{ $userCount }}</p>
             </div>
         </x-filament::card>
