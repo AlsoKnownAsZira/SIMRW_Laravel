@@ -74,4 +74,10 @@ class User extends Authenticatable
             $q->where('name', $role);
         });
     }
+
+    public function roles(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->morphToMany(Role::class, 'model', 'model_has_roles', 'model_id', 'role_id');
+    }
+
 }
