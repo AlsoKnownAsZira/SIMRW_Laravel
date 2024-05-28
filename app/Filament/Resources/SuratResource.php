@@ -15,7 +15,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\SuratResource\Pages;
-
+use Barryvdh\DomPDF\Facade\Pdf as PDF;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\SuratResource\RelationManagers;
 
@@ -78,7 +78,24 @@ class SuratResource extends Resource
             Tables\Actions\ViewAction::make(),
             Tables\Actions\EditAction::make(),
             Tables\Actions\DeleteAction::make(),
-            
+            Tables\Actions\Action::make('downloadPdf')
+                    ->label('Download PDF')
+                    ->action(function ($record) {
+                        $perihalLabels = [
+                            'pengantar' => 'Surat Pengantar',
+                            'kelahiran' => 'Akta Kelahiran',
+                            'kematian' => 'Akta Kematian',
+                            'sktm' => 'Surat Keterangan Tidak Mampu',
+                        ];
+                        $pdf = PDF::loadView('surat.pdf', [
+                            'surat' => $record,
+                            'perihalLabels' => $perihalLabels,
+                        ]);
+                        return response()->streamDownload(
+                            fn() => print($pdf->stream()),
+                            "surat_{$record->id}.pdf"
+                        );
+                    }), 
         ])
         ->bulkActions([
             Tables\Actions\DeleteBulkAction::make(),
