@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\KegiatanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,5 @@ Route::get('/', function () {
 Route::get('/', function () {
     return redirect('/admin');
 });
+
+Route::get('/kegiatan/{id}/download-pdf', [KegiatanController::class, 'downloadPdf'])->name('filament.kegiatan.downloadPdf');

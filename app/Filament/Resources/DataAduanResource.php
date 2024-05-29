@@ -25,6 +25,7 @@ class DataAduanResource extends Resource
     protected static ?string $model = data_aduan::class;
     protected static ?int $navigationSort = 2;
     protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationLabel = 'Data Aduan';
 
     public static function form(Form $form): Form
     {
@@ -143,7 +144,6 @@ class DataAduanResource extends Resource
             return $query;
         }
 
-        // Default case jika peran lain, tampilkan semua data
         return $query;
     }
 }

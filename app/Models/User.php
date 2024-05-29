@@ -61,11 +61,6 @@ class User extends Authenticatable
         return $this->hasRole(['Admin', 'RT1', 'RT2']);
     }
 
-    // Tentukan relasi ke Role jika diperlukan
-//    public function roles(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
-//    {
-//        return $this->belongsToMany(Role::class);
-//    }
 
     // Tambahkan atribut wilayah
     public function scopeByRole($query, $role)
