@@ -27,7 +27,7 @@ class KeuanganResource extends Resource
 {
     protected static ?string $model = Keuangan::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-currency-dollar';
+    protected static ?string $navigationIcon = 'heroicon-s-currency-dollar';
 
     public static function form(Form $form): Form
     {

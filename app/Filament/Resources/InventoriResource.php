@@ -23,8 +23,8 @@ class InventoriResource extends Resource
 {
     protected static ?string $model = Inventori::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
-
+    protected static ?string $navigationIcon = 'heroicon-s-archive';
+    
     public static function form(Form $form): Form
     {
         return $form
