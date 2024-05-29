@@ -5,7 +5,7 @@
     <style>
         body {
             font-family: 'Times New Roman', Times, serif;
-            line-height: 1.6;
+            line-height: 1.4;
         }
 
         .header, .footer {
@@ -27,16 +27,18 @@
 
         .signature {
             width: 50%;
-            text-align: center;
+            text-align: right;
         }
     </style>
 
 </head>
 <body>
 <div class="header">
-    <h3>WILAYAH MALANG</h3>
-    <h4>KECAMATAN LOWOKWARU, KELURAHAN GATAU</h4>
-    <h5>MALANG {{ $role }} RW 07</h5>
+    <h4>PEMERINTAH DESA JATIMULYO</h4>
+    <h4>KECAMATAN LOWOKWARU KOTA MALANG</h4>
+    <h3><b>RUKUN WARGA 05</b></h3>
+    <hr>
+    <h3><u>Undangan Kegiatan</u></h3>
 </div>
 <div class="content">
     <p>Malang, {{ $tanggal }}</p>
@@ -47,11 +49,10 @@
     <p>Kepada Yth,</p>
     <p>Bapak/Ibu Warga {{ $role }}</p>
     <p>Di Tempat</p>
-
     <p>Dengan Hormat,</p>
     <p>
-        Dengan ini kami selaku pengurus {{ $role }} RW 07 mengundang seluruh warga {{ $role }} RW 07
-        untuk menghadiri pertemuan kegiatan pada:
+        Dengan ini kami selaku pengurus {{ $role }} RW 05 mengundang seluruh warga {{ $role }} RW 05
+        untuk menghadiri kegiatan pada:
     </p>
 
     <table class="table-no-border">
@@ -74,9 +75,7 @@
     </table>
 
     <p>
-        Mengingat pentingnya acara tersebut, para warga dimohon untuk hadir dan mengikuti
-        pertemuan tersebut dari awal hingga selesai. Apabila kepala keluarga berhalangan, mohon
-        anggota keluarganya untuk mewakilkan.
+Mengingat pentingnya acara ini, kami mengharapkan kehadiran bapak/ibu tepat waktu.
     </p>
 
     <p>Demikian undangan ini kami sampaikan. Atas perhatian dan kehadirannya kami ucapkan terimakasih.</p>
