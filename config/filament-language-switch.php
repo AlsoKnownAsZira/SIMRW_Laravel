@@ -24,7 +24,7 @@ return [
     | "composer require stijnvanouplines/blade-country-flags"
     */
 
-    'flag' => false,
+    'flag' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -38,7 +38,7 @@ return [
 
     'locales' => [
 //        'ar' => ['name' => 'Arabic',                 'script' => 'Arab', 'native' => 'العربية', 'flag_code' => 'sa'],
-        'en' => ['name' => 'English', 'script' => 'Latn', 'native' => 'English', 'flag_code' => 'us'],
+        'en' => ['name' => 'English', 'script' => 'Latn', 'native' => 'English', 'flag_code' => 'gb'],
 //        'fr' => ['name' => 'French',                 'script' => 'Latn', 'native' => 'français', 'flag_code' => 'fr'],
 
         'id' => ['name' => 'Indonesian', 'script' => 'Latn', 'native' => 'Bahasa Indonesia', 'flag_code' => 'id'],
