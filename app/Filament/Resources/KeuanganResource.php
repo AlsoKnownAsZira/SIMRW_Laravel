@@ -38,13 +38,35 @@ class KeuanganResource extends Resource
                         'Masuk' => 'Masuk',
                         'Keluar' => 'Keluar',
                     ])
+                    ->required()
+                    ->reactive(),
+                    //->afterStateUpdated(),
+                    Forms\Components\Select::make('kategori')
+                    ->options(function (callable $get) {
+                        if ($get('jenis') === 'Masuk') {
+                            return [
+                                'Iuran' => 'Iuran', 
+                                'Donasi' => 'Donasi',
+                                'Sponsorship' => 'Sponsorship',
+                                'Bantuan Pemerintah' => 'Bantuan Pemerintah',
+                            ];
+                        } elseif ($get('jenis') === 'Keluar') {
+                            return [
+                                'Biaya Operasional' => 'Biaya Operasional',
+                                'Pembelian Barang' => 'Pembelian Barang',
+                                'Pembangunan Infrastruktur' => 'Pembangunan Infrastruktur',
+                                'Lainnya' => 'Lainnya',
+                            ];
+                        }
+                        return [];
+                    })
                     ->required(),
-                Forms\Components\TextInput::make('detail')
+                Forms\Components\Textarea::make('detail')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('nominal')  
                     ->mask(fn (TextInput\Mask $mask) => $mask
-                        ->money(prefix: 'Rp', thousandsSeparator: '.', decimalPlaces: 2, isSigned: false))
+                    ->money(prefix: 'Rp', thousandsSeparator: '.', decimalPlaces: 2, isSigned: false))
                     ->required(),
                 Forms\Components\DatePicker::make('tanggal')
                     ->required(),
@@ -62,8 +84,11 @@ class KeuanganResource extends Resource
                         'danger' => 'Keluar',
                     ])
                     ->searchable(),
+                Tables\Columns\TextColumn::make('kategori')
+                    ->label('Kategori'),
                 Tables\Columns\TextColumn::make('detail')
                     ->label('Detail')
+                    ->limit(20)
                     ->searchable(),
                 Tables\Columns\TextColumn::make('nominal')
                     ->label('Nominal')
@@ -73,7 +98,10 @@ class KeuanganResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('tanggal')
                     ->label('Tanggal')
-                    ->date()
+                    ->formatStateUsing(function ($state) {
+                        Carbon::setLocale('id');
+                        return Carbon::parse($state)->translatedFormat('j F Y');
+                    })
                     ->sortable(),
             ])
             ->filters([
