@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\KegiatanController;
+use Filament\Facades\Filament;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LandingPageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,12 +16,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route untuk landing page
+Route::get('/', [LandingPageController::class, 'show'])->name('landing');
+
+// Filament route
+Route::middleware(['auth'])->group(function () {
+    Filament::serving(function () {
+        Filament::auth();
+    });
 });
 
-Route::get('/', function () {
-    return redirect('/admin');
-});
+Route::post('/logout', [LandingPageController::class, 'logout'])->name('filament.auth.logout')->middleware('redirectAfterLogout');
+
 
 Route::get('/kegiatan/{id}/download-pdf', [KegiatanController::class, 'downloadPdf'])->name('filament.kegiatan.downloadPdf');

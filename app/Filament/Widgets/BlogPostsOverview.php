@@ -17,7 +17,7 @@ class BlogPostsOverview extends Widget
         $this->userCount = User::count();
 
         $this->mapData = [
-            'lat' =>             -7.936885711016384, 
+            'lat' => -7.936885711016384,
             'lng' => 112.61254034198969,
         ];
     }
