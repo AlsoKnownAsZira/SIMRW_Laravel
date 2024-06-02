@@ -166,4 +166,12 @@ class KeuanganResource extends Resource
             'edit' => Pages\EditKeuangan::route('/{record}/edit'),
         ];
     }    
+    public static function getTotalMoney(): int
+{
+    $totalMasuk = Keuangan::where('jenis', 'Masuk')->sum('nominal');
+    $totalKeluar = Keuangan::where('jenis', 'Keluar')->sum('nominal');
+    return (int) ($totalMasuk - $totalKeluar);
+}
+
+   
 }
