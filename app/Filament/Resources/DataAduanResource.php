@@ -7,6 +7,7 @@ use App\Filament\Resources\DataAduanResource\RelationManagers;
 use App\Models\data_aduan;
 use App\Models\User;
 use App\Models\DataAduan;
+use Filament\Support\Colors\Color;
 use Filament\Forms;
 use Filament\Forms\Components\Card;
 use Filament\Forms\Components\Select;
@@ -19,6 +20,10 @@ use Filament\Tables\Columns\TextColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\Auth;
+use Filament\Tables\Columns\BadgeColumn;
+use Illuminate\Support\Facades\Log;
+
+//use Filament\Tables\Concerns
 
 class DataAduanResource extends Resource
 {
@@ -87,8 +92,23 @@ class DataAduanResource extends Resource
                     ->label('Judul')
                     ->sortable()
                     ->searchable(),
-                TextColumn::make('status')
+//                TextColumn::make('status')
+//                    ->label('Status')
+//                    ->color(function($record) {
+//                        Log::info('Status:', ['status' => $record->status]);
+//                        if ($record->status == 'Valid') {
+//                            return 'green';
+//                        } elseif ($record->status == 'Dalam Proses') {
+//                            return 'yellow';
+//                        }
+//                        return 'black'; // Default color
+//                    })
+                Tables\Columns\BadgeColumn::make('status')
                     ->label('Status')
+                    ->colors([
+                        'success' => 'Valid',
+                        'warning' => 'Dalam Proses',
+                    ])
                     ->sortable()
                     ->searchable(),
             ];
