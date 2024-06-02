@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RW Landing Page</title>
@@ -231,11 +233,17 @@
         </div>
     </div>
 </section>
+<div class="bg-secondary">
+    <section class=" shadow container mx-auto px-6 py-16">
+        <div id="mapid" style="height: 400px;"></div>
+</section>
+
+</div>
 
 <!-- Footer -->
 <footer class="bg-primary shadow mt-8">
     <div class="container mx-auto px-6 py-4 text-center">
-        <p class="text-neutral">&copy; 2024 RW Community. All rights reserved.</p>
+        <p class="text-neutral">&copy; SIMRW RW 5. All rights reserved.</p>
     </div>
 </footer>
 
@@ -274,6 +282,15 @@
 
     scrollContainer.addEventListener('scroll', updateArrows);
     document.addEventListener('DOMContentLoaded', updateArrows);
+
+    var mymap = L.map('mapid').setView([-7.936885711016384, 112.61254034198969], 13);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+}).addTo(mymap);
+
+L.marker([-7.936885711016384, 112.61254034198969]).addTo(mymap)
+    .bindPopup("<b>RW 05 Kelurahan Jatimulyo</b>").openPopup();
 </script>
 
 </body>
