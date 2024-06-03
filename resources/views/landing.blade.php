@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RW Landing Page</title>
@@ -12,41 +14,67 @@
             top: 0;
             z-index: 50;
         }
+        :root {
+    --bg-primary: #FFFFFF; /* White */
+    --text-primary: #FF7D29; /* Orange */
+    --bg-secondary: #F3F4F6; /* Light Gray */
+    --text-secondary: #F3F4F6; /* Light Gray */
+    --bg-accent: #FF7D29; /* Orange */
+    --text-accent: #FF7D29; /* Orange */
+    --bg-neutral: #F9FAFB; /* Almost White */
+    --text-neutral: #4B5563; /* Dark Gray */
+}
 
+body.dark-mode {
+    --bg-primary: #1a202c; /* Dark Blue */
+    --text-primary: #cbd5e0; /* Light Gray */
+    --bg-secondary: #2d3748; /* Dark Gray */
+    --text-secondary: #e2e8f0; /* Gray */
+    --bg-accent: #f56565; /* Red */
+    --text-accent: #2d3748; /* Dark Gray */
+    --bg-neutral: #2d3748; /* Dark Gray */
+    --text-neutral: #cbd5e0; /* Light Gray */
+}
+        body {
+            background-color: var(--bg-neutral);
+            color: var(--text-neutral);
+            transition: background-color 0.3s, color 0.3s;
+        }
         .bg-primary {
-            background-color: #FFFFFF; /* White */
+            background-color: var(--bg-primary);
+
         }
 
         .text-primary {
-            color: #FF7D29; /* Orange */
+             color: var(--text-primary);
         }
 
         .bg-secondary {
-            background-color: #F3F4F6; /* Light Gray */
+            background-color: var(--bg-secondary); 
         }
 
         .text-secondary {
-            color: #F3F4F6; /* Light Gray */
+            color: var(--text-secondary);
         }
 
         .bg-accent {
-            background-color: #FF7D29; /* Orange */
+            background-color: var(--bg-accent); 
         }
 
         .text-accent {
-            color: #FF7D29; /* Orange */
+            color: var(--text-accent);
         }
 
         .bg-neutral {
-            background-color: #F9FAFB; /* Almost White */
+            background-color: var(--bg-neutral);
         }
 
         .text-neutral {
-            color: #4B5563; /* Dark Gray */
+            color: var(--text-neutral);
         }
 
         .btn-login {
-            background-color: #FF7D29; /* Orange */
+            background-color: var(--bg-accent);
             color: white;
             padding: 0.5rem 1rem;
             border-radius: 0.9rem;
@@ -143,9 +171,11 @@
     <div class="container mx-auto px-6 py-3">
         <div class="flex justify-between items-center">
             <div>
-                <a href="#" class="text-primary text-xl font-bold">RW Community</a>
+                <a href="#" class="text-primary text-xl font-bold">SIMRW</a>
             </div>
             <div>
+                <button onclick="toggleDarkMode()" class="btn-login">Toggle Dark Mode</button>
+
                 <a href="{{ route('filament.auth.login') }}" class="btn-login">Login</a>
             </div>
         </div>
@@ -155,8 +185,9 @@
 <!-- Hero Section -->
 <header class="hero">
     <div class="container mx-auto px-6">
-        <h1 class="font-bold">Welcome to RW Community</h1>
-        <p>Connecting and empowering our neighborhood</p>
+        <h1 class="font-bold">Selamat datang di SIMRW!<br>Welcome to SIMRW!</h1>
+        <p>Menghubungkan warga berkembang bersama</p>
+        <p>Connecting citizen growing together </p>
     </div>
 </header>
 
@@ -173,30 +204,22 @@
 </section>
 
 <!-- Kegiatan RW Section -->
+{{-- pengkondisian jika tanggal kegiatan lebih besar dari waktu sekarang --}}
 <section class="bg-secondary shadow py-16">
     <div class="container mx-auto px-6 relative">
         <h2 class="section-title">Kegiatan RW</h2>
         <div class="scroll-container">
             @foreach($kegiatan as $item)
-                <div class="card">
-                    <h3>{{ $item->perihal }}</h3>
-                    <p>Tempat : {{ $item->tempat }}</p>
-                    <p>Acara : {{ $item->acara }}</p>
-                </div>
+                @if(strtotime($item->tanggal . ' ' . $item->pukul) > time())
+                    <div class="card">
+                        <h3>{{ $item->perihal }}</h3>
+                        <p>Tempat : {{ $item->tempat }}</p>
+                        <p>Acara : {{ $item->acara }}</p>
+                        <p>Tanggal : {{ date('d-m-Y', strtotime($item->tanggal)) }}</p> 
+                        <p>Waktu : {{ $item->pukul }} WIB</p>
+                    </div>
+                @endif
             @endforeach
-{{--            <div class="card">--}}
-{{--                <h3>Community Clean-Up</h3>--}}
-{{--                <p>Join us every month for a neighborhood clean-up to keep our area clean and green.</p>--}}
-{{--            </div>--}}
-{{--            <div class="card">--}}
-{{--                <h3>Monthly Meetings</h3>--}}
-{{--                <p>Attend our monthly meetings to discuss community issues and plan future activities.</p>--}}
-{{--            </div>--}}
-{{--            <div class="card">--}}
-{{--                <h3>Sports Events</h3>--}}
-{{--                <p>Participate in our sports events to stay active and meet your neighbors.</p>--}}
-{{--            </div>--}}
-{{--            <!-- Add more cards as needed -->--}}
         </div>
     </div>
 </section>
@@ -231,11 +254,17 @@
         </div>
     </div>
 </section>
+<div class="bg-secondary">
+    <section class=" shadow container mx-auto px-6 py-16">
+        <div id="mapid" style="height: 400px;"></div>
+</section>
+
+</div>
 
 <!-- Footer -->
 <footer class="bg-primary shadow mt-8">
     <div class="container mx-auto px-6 py-4 text-center">
-        <p class="text-neutral">&copy; 2024 RW Community. All rights reserved.</p>
+        <p class="text-neutral">&copy; SIMRW RW 5. All rights reserved.</p>
     </div>
 </footer>
 
@@ -274,6 +303,19 @@
 
     scrollContainer.addEventListener('scroll', updateArrows);
     document.addEventListener('DOMContentLoaded', updateArrows);
+
+    var mymap = L.map('mapid').setView([-7.936885711016384, 112.61254034198969], 13);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+}).addTo(mymap);
+
+L.marker([-7.936885711016384, 112.61254034198969]).addTo(mymap)
+    .bindPopup("<b>RW 05 Kelurahan Jatimulyo</b>").openPopup();
+
+    function toggleDarkMode() {
+        document.body.classList.toggle('dark-mode');
+    }
 </script>
 
 </body>

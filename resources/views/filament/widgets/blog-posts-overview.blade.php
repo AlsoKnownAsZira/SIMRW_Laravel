@@ -15,7 +15,7 @@
         <x-filament::card class="card">
             <div class="filament-widgets-user-overview">
                 <h1><i class="fas fa-money-bill-wave"></i> <b>ANGGARAN</b></h1>
-                <p>Total Anggaran : {{ $userCount }}</p>
+                <p>Total Anggaran : Rp{{ number_format($anggaranCount, 0, ',', '.') }}</p>
             </div>
         </x-filament::card>
     </x-filament::widget>
@@ -23,7 +23,7 @@
         <x-filament::card class="card">
             <div class="filament-widgets-user-overview">
                 <h1><i class="fas fa-warehouse"></i> <b>INVENTORI</b></h1>
-                <p>Total Inventori : {{ $userCount }}</p>
+                <p>Total Inventori : {{ $inventoriCount }}</p>
             </div>
         </x-filament::card>
     </x-filament::widget>
@@ -31,7 +31,7 @@
         <x-filament::card class="card">
             <div class="filament-widgets-user-overview">
                 <h1><i class="fas fa-envelope"></i> <b>SURAT MASUK</b></h1>
-                <p>Total Surat : {{ $userCount }}</p>
+                <p>Total Surat : {{ $suratCount }}</p>
             </div>
         </x-filament::card>
     </x-filament::widget>
@@ -39,7 +39,7 @@
 
 
 
-
+{{-- 
 <div class="map-container">
     <x-filament::widget>
         <x-filament::card>
@@ -63,7 +63,7 @@
             </script>
         </x-filament::card>
     </x-filament::widget>
-</div>
+</div> --}}
 
 <style>
     .card-container {
