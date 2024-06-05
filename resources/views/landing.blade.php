@@ -196,9 +196,8 @@ body.dark-mode {
     <h2 class="section-title">Profil RW</h2>
     <div class="text-center">
         <p class="text-lg text-neutral">
-            RW 09 is dedicated to fostering a strong community spirit through various activities and initiatives that
-            benefit all residents. Our mission is to create a safe, inclusive, and vibrant neighborhood where everyone
-            feels welcome and valued.
+            SIMRW adalah aplikasi yang membantu warga RW 05 Kelurahan Jatimulyo, Kecamatan Lowokwaru, Kota Malang untuk terhubung dan berkembang bersama.
+            Aplikasi ini memudahkan kita semua dalam melakukan administrasi yang biasanya lumayan merepotkan.
         </p>
     </div>
 </section>
@@ -230,26 +229,26 @@ body.dark-mode {
     <div class="mt-8 flex flex-wrap justify-center">
         <div class="w-full sm:w-1/2 lg:w-1/4 p-6">
             <div class="card">
-                <h3>Chairperson</h3>
-                <p>John Doe</p>
+                <h3>Ketua RW</h3>
+                <p>Rusdi</p>
             </div>
         </div>
         <div class="w-full sm:w-1/2 lg:w-1/4 p-6">
             <div class="card">
-                <h3>Secretary</h3>
-                <p>Jane Smith</p>
+                <h3>Ketua RT 01</h3>
+                <p>Farhan</p>
             </div>
         </div>
         <div class="w-full sm:w-1/2 lg:w-1/4 p-6">
             <div class="card">
-                <h3>Treasurer</h3>
-                <p>Mike Johnson</p>
+                <h3>Ketua RT 02</h3>
+                <p>Slamet</p>
             </div>
         </div>
         <div class="w-full sm:w-1/2 lg:w-1/4 p-6">
             <div class="card">
-                <h3>Community Liaison</h3>
-                <p>Emily Davis</p>
+                <h3>Ketua RW 03</h3>
+                <p>Sutoyo</p>
             </div>
         </div>
     </div>
