@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\KegiatanController;
 use Filament\Facades\Filament;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CetakPDFController;
+use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\LandingPageController;
 
 /*
@@ -30,3 +31,5 @@ Route::post('/logout', [LandingPageController::class, 'logout'])->name('filament
 
 
 Route::get('/kegiatan/{id}/download-pdf', [KegiatanController::class, 'downloadPdf'])->name('filament.kegiatan.downloadPdf');
+
+Route::post('/hasil-topsis/cetak-pdf', [CetakPDFController::class, 'cetakPdf'])->name('filament.topsis.cetakPdf');
