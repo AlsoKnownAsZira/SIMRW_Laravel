@@ -186,6 +186,55 @@ class KeuanganSeeder extends Seeder
                 'nominal' => 1800000,
                 'tanggal' => Carbon::create(2024, 12, 5),
             ],
+            [
+                'jenis' => 'Masuk',
+                'kategori' => 'Iuran',
+                'detail' => 'Pembayaran iuran bulanan',
+                'nominal' => 600000,
+                'tanggal' => Carbon::create(2024, 12, 15),
+            ],
+            [
+                'jenis' => 'Keluar',
+                'kategori' => 'Pembelian Barang',
+                'detail' => 'Pembelian perlengkapan kantor',
+                'nominal' => 400000,
+                'tanggal' => Carbon::create(2024, 12, 16),
+            ],
+            [
+                'jenis' => 'Masuk',
+                'kategori' => 'Donasi',
+                'detail' => 'Donasi untuk program pendidikan',
+                'nominal' => 2000000,
+                'tanggal' => Carbon::create(2024, 12, 20),
+            ],
+            [
+                'jenis' => 'Keluar',
+                'kategori' => 'Biaya Operasional',
+                'detail' => 'Pembayaran listrik',
+                'nominal' => 300000,
+                'tanggal' => Carbon::create(2024, 12, 21),
+            ],
+            [
+                'jenis' => 'Masuk',
+                'kategori' => 'Sponsorship',
+                'detail' => 'Sponsorship acara olahraga',
+                'nominal' => 3000000,
+                'tanggal' => Carbon::create(2024, 12, 22),
+            ],
+            [
+                'jenis' => 'Keluar',
+                'kategori' => 'Pembangunan Infrastruktur',
+                'detail' => 'Pembangunan gedung sekolah',
+                'nominal' => 8000000,
+                'tanggal' => Carbon::create(2024, 12, 23),
+            ],
+            [
+                'jenis' => 'Masuk',
+                'kategori' => 'Bantuan Pemerintah',
+                'detail' => 'Bantuan program kesehatan',
+                'nominal' => 4000000,
+                'tanggal' => Carbon::create(2024, 12, 24),
+            ],
         ];
 
         foreach ($keuangans as $keuangan) {
