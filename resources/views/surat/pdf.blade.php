@@ -87,6 +87,18 @@
 </div>
 </body>
 </html> --}}
+
+@php
+
+use Dompdf\Dompdf;
+
+$dompdf = new Dompdf();
+$imagePath = public_path('images/malang.png');
+$imageData = base64_encode(file_get_contents($imagePath));
+$imageBase64 = 'data:image/jpg;base64,' . $imageData;
+
+@endphp
+
 <!DOCTYPE html>
 <html lang="id">
 
@@ -113,14 +125,16 @@
             align-items: center;
             margin-bottom: 20px;
         }
-
+        
         .header img.logo {
             width: 100px;
             height: auto;
-            margin-right: 20px;
+            margin-top: 10px;
+            float: left;
         }
-
+        
         .header-text {
+            margin-right: 70px; 
             text-align: center;
             flex-grow: 1;
         }
@@ -163,10 +177,10 @@
         }
 
         .signature {
-    text-align: right;
-    width: 30%;
-    margin-left: auto; /* This will push the signature to the right */
-}
+            text-align: right;
+            width: 30%;
+            margin-left: auto; /* This will push the signature to the right */
+        }
 
         .signature .sign {
             margin-top: 60px;
@@ -189,8 +203,9 @@
     <div class="container">
         <div class="kopsurat">
             <div class="header">
-                <link rel="icon" type="image/x-icon" href="{{ URL::asset('malang.jpg') }}" />        
-                        <div class="header-text">
+                <img class="logo" src="{{ $imageBase64 }}" alt="Logo" />
+                {{-- <link rel="icon" type="image/x-icon" href="{{ URL::asset('malang.jpg') }}" /> --}}
+                <div class="header-text">
                     <h2>PEMERINTAH KOTA MALANG</h2>
                     <h3>KECAMATAN LOWOKWARU</h3>
                     <h3>DESA JATIMULYO</h3>
@@ -215,14 +230,14 @@
                 <tr>
                     <td>Nama</td>
                     <td>
-                        :{{ $surat->pemohon }}
+                        : {{ $surat->pemohon }}
                         
                     </td>
                 </tr>
                 <tr>
                     <td>NIK</td>
                         
-                        <td>:{{ $surat->nik }}</td>                    </td>
+                        <td>: {{ $surat->nik }}</td>                    </td>
                 </tr>
                 <tr>
                     <td>Alamat </td>
@@ -242,8 +257,8 @@
                 {{ $perihalLabels[$surat->perihal] ?? $surat->perihal }}
             </p>
             <p>
-                Demikian surat keterangan tidak mampu ini dibuat dengan sebenar
-                benarnya dan untuk dipergunakan sebagaimana mestinya.
+                Demikian surat ini dibuat dengan sebenar-benarnya dan
+                untuk dipergunakan sebagaimana mestinya.
             </p>
         </div>
 

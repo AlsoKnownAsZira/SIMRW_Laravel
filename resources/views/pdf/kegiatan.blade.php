@@ -1,3 +1,14 @@
+@php
+
+use Dompdf\Dompdf;
+
+$dompdf = new Dompdf();
+$imagePath = public_path('images/malang.png');
+$imageData = base64_encode(file_get_contents($imagePath));
+$imageBase64 = 'data:image/jpg;base64,' . $imageData;
+
+@endphp
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +20,34 @@
         }
 
         .header, .footer {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            /* text-align: center; */
+        }
+
+        .header img.logo {
+            width: 100px;
+            height: auto;
+            margin-top: 10px;
+            float: left;
+        }
+
+        .header-text {
+            margin-right: 100px; 
             text-align: center;
+            flex-grow: 1;
+        }
+
+        .header-text h2,
+        .header-text h3,
+        .header-text p {
+            margin: 5px 0;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 20px;
         }
 
         .content {
@@ -34,11 +72,22 @@
 </head>
 <body>
 <div class="header">
-    <h4>PEMERINTAH DESA JATIMULYO</h4>
-    <h4>KECAMATAN LOWOKWARU KOTA MALANG</h4>
-    <h3><b>RUKUN WARGA 05</b></h3>
+    <div class="kopsurat">
+        <div class="header">
+            <img class="logo" src="{{ $imageBase64 }}" alt="Logo" />
+            <div class="header-text">
+                <h4>PEMERINTAH DESA JATIMULYO</h4>
+                <h4>KECAMATAN LOWOKWARU KOTA MALANG</h4>
+                <h3><b>RUKUN WARGA 05</b></h3>
+                
+            </div>
+        </div>
+    </div>
     <hr>
-    <h3><u>Undangan Kegiatan</u></h3>
+    <div class="title">
+        <h3><u>Undangan Kegiatan</u></h3>
+    </div>
+    
 </div>
 <div class="content">
     <p>Malang, {{ $tanggal }}</p>
