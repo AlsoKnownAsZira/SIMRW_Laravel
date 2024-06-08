@@ -13,18 +13,18 @@ class NilaiAlternatif extends Model
 
     protected $fillable = ['alternatif_id', 'kriteria_id', 'nilai'];
 
-    public function alternatif()
+    public function alternatif(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Alternatif::class, 'alternatif_id');
     }
 
-    public function kriteria()
+    public function kriteria(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Kriteria::class, 'kriteria_id');
     }
 
-    public function nilaiAlternatifs()
-    {
-        return $this->hasMany(NilaiAlternatif::class, 'alternatif_id');
-    }
+//    public function nilaiAlternatifs(): \Illuminate\Database\Eloquent\Relations\HasMany
+//    {
+//        return $this->hasMany(NilaiAlternatif::class, 'alternatif_id');
+//    }
 }

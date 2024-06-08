@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Support\Str;
+use Spatie\Permission\Models\Role;
 
 class UserSeeder extends Seeder
 {
@@ -14,7 +15,7 @@ class UserSeeder extends Seeder
     {
         $users = [
             [
-                'id' => 3,
+//                'id' => 3,
                 'username' => '1234567890123456',
                 'name' => 'Budi Santoso',
                 'password' => Hash::make('password'),
@@ -33,7 +34,7 @@ class UserSeeder extends Seeder
                 'remember_token' => Str::random(10),
             ],
             [
-                'id' => 4,
+//                'id' => 4,
                 'username' => '1234567890123457',
                 'name' => 'Siti Aminah',
                 'password' => Hash::make('password'),
@@ -52,7 +53,7 @@ class UserSeeder extends Seeder
                 'remember_token' => Str::random(10),
             ],
             [
-                'id' => 5,
+//                'id' => 5,
                 'username' => '1234567890123458',
                 'name' => 'Joko Widodo',
                 'password' => Hash::make('password'),
@@ -71,7 +72,7 @@ class UserSeeder extends Seeder
                 'remember_token' => Str::random(10),
             ],
             [
-                'id' => 6,
+//                'id' => 6,
                 'username' => '1234567890123459',
                 'name' => 'Ahmad Fauzi',
                 'password' => Hash::make('password'),
@@ -90,7 +91,7 @@ class UserSeeder extends Seeder
                 'remember_token' => Str::random(10),
             ],
             [
-                'id' => 7,
+//                'id' => 7,
                 'username' => '1234567890123460',
                 'name' => 'Dewi Sartika',
                 'password' => Hash::make('password'),
@@ -109,7 +110,7 @@ class UserSeeder extends Seeder
                 'remember_token' => Str::random(10),
             ],
             [
-                'id' => 8,
+//                'id' => 8,
                 'username' => '1234567890123461',
                 'name' => 'Rina Wulandari',
                 'password' => Hash::make('password'),
@@ -128,7 +129,7 @@ class UserSeeder extends Seeder
                 'remember_token' => Str::random(10),
             ],
             [
-                'id' => 9,
+//                'id' => 9,
                 'username' => '1234567890123462',
                 'name' => 'Eko Prasetyo',
                 'password' => Hash::make('password'),
@@ -147,7 +148,7 @@ class UserSeeder extends Seeder
                 'remember_token' => Str::random(10),
             ],
             [
-                'id' => 10,
+//                'id' => 10,
                 'username' => '1234567890123463',
                 'name' => 'Andi Susanto',
                 'password' => Hash::make('password'),
@@ -166,7 +167,7 @@ class UserSeeder extends Seeder
                 'remember_token' => Str::random(10),
             ],
             [
-                'id' => 11,
+//                'id' => 11,
                 'username' => '1234567890123464',
                 'name' => 'Rudi Hartono',
                 'password' => Hash::make('password'),
@@ -185,7 +186,7 @@ class UserSeeder extends Seeder
                 'remember_token' => Str::random(10),
             ],
             [
-                'id' => 12,
+//                'id' => 12,
                 'username' => '1234567890123465',
                 'name' => 'Sri Wahyuni',
                 'password' => Hash::make('password'),
@@ -203,9 +204,9 @@ class UserSeeder extends Seeder
                 'alamat' => 'Jl. Sudirman No.10',
                 'remember_token' => Str::random(10),
             ],
-           
+
             [
-                'id' => 13,
+//                'id' => 13,
                 'username' => '1234567890123497',
                 'name' => 'Eka Surya',
                 'password' => Hash::make('password'),
@@ -224,7 +225,7 @@ class UserSeeder extends Seeder
                 'remember_token' => Str::random(10),
             ],
             [
-                'id' => 14,
+//                'id' => 14,
                 'username' => '1234567890123498',
                 'name' => 'Agus Santoso',
                 'password' => Hash::make('password'),
@@ -243,7 +244,7 @@ class UserSeeder extends Seeder
                 'remember_token' => Str::random(10),
             ],
             [
-                'id' => 15,
+//                'id' => 15,
                 'username' => '1234567890123499',
                 'name' => 'Rini Wulandari',
                 'password' => Hash::make('password'),
@@ -262,7 +263,7 @@ class UserSeeder extends Seeder
                 'remember_token' => Str::random(10),
             ],
             [
-                'id' => 16,
+//                'id' => 16,
                 'username' => '1234567890123500',
                 'name' => 'Ahmad Bayu',
                 'password' => Hash::make('password'),
@@ -281,7 +282,7 @@ class UserSeeder extends Seeder
                 'remember_token' => Str::random(10),
             ],
             [
-                'id' => 17,
+//                'id' => 17,
                 'username' => '1234567890123501',
                 'name' => 'Yanto Budiman',
                 'password' => Hash::make('password'),
@@ -300,7 +301,7 @@ class UserSeeder extends Seeder
                 'remember_token' => Str::random(10),
             ],
             [
-                'id' => 18,
+//                'id' => 18,
                 'username' => '1234567890123502',
                 'name' => 'Robby Kurniawan',
                 'password' => Hash::make('password'),
@@ -319,7 +320,7 @@ class UserSeeder extends Seeder
                 'remember_token' => Str::random(10),
             ],
             [
-                'id' => 19,
+//                'id' => 19,
                 'username' => '1234567890123503',
                 'name' => 'Diana Sari',
                 'password' => Hash::make('password'),
@@ -338,7 +339,7 @@ class UserSeeder extends Seeder
                 'remember_token' => Str::random(10),
             ],
             [
-                'id' => 20,
+//                'id' => 20,
                 'username' => '1234567890123504',
                 'name' => 'Irfan Saputra',
                 'password' => Hash::make('password'),
@@ -357,7 +358,7 @@ class UserSeeder extends Seeder
                 'remember_token' => Str::random(10),
             ],
             [
-                'id' => 21,
+//                'id' => 21,
                 'username' => '1234567890123505',
                 'name' => 'Anisa Dewi',
                 'password' => Hash::make('password'),
@@ -376,7 +377,7 @@ class UserSeeder extends Seeder
                 'remember_token' => Str::random(10),
             ],
             [
-                'id' => 22,
+//                'id' => 22,
                 'username' => '1234567890123506',
                 'name' => 'Ahmad Rifai',
                 'password' => Hash::make('password'),
@@ -393,9 +394,9 @@ class UserSeeder extends Seeder
                 'golongan_darah' => 'A',
                 'alamat' => 'Jl. Gatot Subroto No.23',
                 'remember_token' => Str::random(10),
-            ],       
+            ],
             [
-                'id' => 23,
+//                'id' => 23,
                 'username' => '1234567890123507',
                 'name' => 'Siti Rahmawati',
                 'password' => Hash::make('password'),
@@ -414,7 +415,7 @@ class UserSeeder extends Seeder
                 'remember_token' => Str::random(10),
             ],
             [
-                'id' => 24,
+//                'id' => 24,
                 'username' => '1234567890123508',
                 'name' => 'Fahmi Setiawan',
                 'password' => Hash::make('password'),
@@ -433,7 +434,7 @@ class UserSeeder extends Seeder
                 'remember_token' => Str::random(10),
             ],
             [
-                'id' => 25,
+//                'id' => 25,
                 'username' => '1234567890123509',
                 'name' => 'Rani Febrianti',
                 'password' => Hash::make('password'),
@@ -452,7 +453,7 @@ class UserSeeder extends Seeder
                 'remember_token' => Str::random(10),
             ],
             [
-                'id' => 26,
+//                'id' => 26,
                 'username' => '1234567890123510',
                 'name' => 'Farhan Maulana',
                 'password' => Hash::make('password'),
@@ -471,7 +472,7 @@ class UserSeeder extends Seeder
                 'remember_token' => Str::random(10),
             ],
             [
-                'id' => 27,
+//                'id' => 27,
                 'username' => '1234567890123511',
                 'name' => 'Lia Indah',
                 'password' => Hash::make('password'),
@@ -489,11 +490,19 @@ class UserSeeder extends Seeder
                 'alamat' => 'Jl. Sudirman No.28',
                 'remember_token' => Str::random(10),
             ],
-                 
+
         ];
 
+        $roles = ['Warga', 'Warga2'];
+
         foreach ($users as $userData) {
-            User::create($userData);
+            $user = User::create($userData);
+
+            $randomRole = $roles[array_rand($roles)];
+
+            // Tetapkan peran ke pengguna
+            $user->assignRole($randomRole);
+
         }
     }
 }
