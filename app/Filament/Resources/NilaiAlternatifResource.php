@@ -8,6 +8,7 @@ use App\Models\Alternatif;
 use App\Models\Kriteria;
 use App\Models\NilaiAlternatif;
 use Filament\Forms;
+use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\Form;
@@ -30,27 +31,48 @@ class NilaiAlternatifResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('nilai')->label('Nilai')->required(),
                 Select::make('alternatif_id')
                     ->label('Alternatif')
                     ->relationship('alternatif', 'nama')
                     ->required(),
 
-                Select::make('kriteria_id')
-                    ->label('Kriteria')
-                    ->relationship('kriteria', 'nama')
-                    ->required(),
+                Repeater::make('nilai_kriterias')
+                    ->label('Nilai Kriteria')
+                    ->schema([
+                        Select::make('kriteria_id')
+                            ->label('Kriteria')
+                            ->relationship('kriteria', 'nama')
+                            ->required(),
+                        TextInput::make('nilai')
+                            ->label('Nilai')
+                            ->required(),
+                    ])
+                    ->minItems(1)
+                    ->createItemButtonLabel('Tambah Kriteria')
             ]);
     }
 
     public static function table(Table $table): Table
     {
+        $kriterias = Kriteria::all();
+
         return $table
-            ->columns([
-                TextColumn::make('alternatif.nama')->label('Alternatif'),
-                TextColumn::make('kriteria.nama')->label('Kriteria'),
-                TextColumn::make('nilai')->label('Nilai'),
-            ])
+            ->columns(array_merge([
+                TextColumn::make('alternatif.nama')->label('Alternatif')->sortable()->searchable(),
+            ],
+                $kriterias->map(function ($kriteria) {
+                    return TextColumn::make("kriteria_{$kriteria->id}.nilai")
+                        ->label($kriteria->nama)
+                        ->sortable()
+                        ->getStateUsing(function ($record) use ($kriteria) {
+                            $nilai = NilaiAlternatif::where('alternatif_id', $record->id)
+                                ->where('kriteria_id', $kriteria->id)
+                                ->first()
+                                ;
+                            return $nilai ? $nilai->nilai : '-';
+                        });
+                })
+                    ->toArray()))
             ->filters([
                 //
             ])
