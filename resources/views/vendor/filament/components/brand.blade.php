@@ -1,0 +1,1 @@
+<img src="{{ asset('/images/simrw-logo.png') }}" alt="Logo" class="h-8">
