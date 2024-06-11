@@ -21,15 +21,13 @@ use App\Http\Controllers\LandingPageController;
 Route::get('/', [LandingPageController::class, 'show'])->name('landing');
 
 // Filament route
-Route::middleware(['auth:filament'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Filament::serving(function () {
         Filament::auth();
     });
 });
 
-Route::post('login', \Filament\Http\Livewire\Auth\Login::class . '@store');
-
-Route::post('logout', [LandingPageController::class, 'logout'])->name('filament.auth.logout')->middleware('redirectAfterLogout');
+Route::post('/logout', [LandingPageController::class, 'logout'])->name('filament.auth.logout')->middleware('redirectAfterLogout');
 
 
 Route::get('/kegiatan/{id}/download-pdf', [KegiatanController::class, 'downloadPdf'])->name('filament.kegiatan.downloadPdf');

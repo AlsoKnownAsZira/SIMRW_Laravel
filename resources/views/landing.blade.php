@@ -50,7 +50,7 @@ body.dark-mode {
         }
 
         .bg-secondary {
-            background-color: var(--bg-secondary);
+            background-color: var(--bg-secondary); 
         }
 
         .text-secondary {
@@ -58,7 +58,7 @@ body.dark-mode {
         }
 
         .bg-accent {
-            background-color: var(--bg-accent);
+            background-color: var(--bg-accent); 
         }
 
         .text-accent {
@@ -214,7 +214,7 @@ body.dark-mode {
                         <h3>{{ $item->perihal }}</h3>
                         <p>Tempat : {{ $item->tempat }}</p>
                         <p>Acara : {{ $item->acara }}</p>
-                        <p>Tanggal : {{ date('d-m-Y', strtotime($item->tanggal)) }}</p>
+                        <p>Tanggal : {{ date('d-m-Y', strtotime($item->tanggal)) }}</p> 
                         <p>Waktu : {{ $item->pukul }} WIB</p>
                     </div>
                 @endif
