@@ -21,6 +21,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        if (app()->isProduction()) { \URL::forceScheme('https'); \URL::forceRootUrl(config('app.url')); }
         FilamentLanguageSwitch::configureUsing(function (FilamentLanguageSwitch $switch) {
             $switch
                 ->locales(['id']); // also accepts a closure

@@ -4,7 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\KegiatanResource\Pages;
 use App\Filament\Resources\KegiatanResource\RelationManagers;
-use App\Models\Kegiatan;
+use App\Models\kegiatan;
 use Carbon\Carbon;
 use Filament\Forms;
 use Filament\Resources\Form;
