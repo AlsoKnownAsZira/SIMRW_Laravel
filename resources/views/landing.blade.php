@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RW Landing Page</title>
@@ -14,43 +14,46 @@
             top: 0;
             z-index: 50;
         }
-        :root {
-    --bg-primary: #FFFFFF; /* White */
-    --text-primary: #FF7D29; /* Orange */
-    --bg-secondary: #F3F4F6; /* Light Gray */
-    --text-secondary: #F3F4F6; /* Light Gray */
-    --bg-accent: #FF7D29; /* Orange */
-    --text-accent: #FF7D29; /* Orange */
-    --bg-neutral: #F9FAFB; /* Almost White */
-    --text-neutral: #4B5563; /* Dark Gray */
-}
 
-body.dark-mode {
-    --bg-primary: #1a202c; /* Dark Blue */
-    --text-primary: #cbd5e0; /* Light Gray */
-    --bg-secondary: #2d3748; /* Dark Gray */
-    --text-secondary: #e2e8f0; /* Gray */
-    --bg-accent: #f56565; /* Red */
-    --text-accent: #2d3748; /* Dark Gray */
-    --bg-neutral: #2d3748; /* Dark Gray */
-    --text-neutral: #cbd5e0; /* Light Gray */
-}
+        :root {
+            --bg-primary: #FFFFFF; /* White */
+            --text-primary: #FF7D29; /* Orange */
+            --bg-secondary: #F3F4F6; /* Light Gray */
+            --text-secondary: #F3F4F6; /* Light Gray */
+            --bg-accent: #FF7D29; /* Orange */
+            --text-accent: #FF7D29; /* Orange */
+            --bg-neutral: #F9FAFB; /* Almost White */
+            --text-neutral: #4B5563; /* Dark Gray */
+        }
+
+        body.dark-mode {
+            --bg-primary: #1a202c; /* Dark Blue */
+            --text-primary: #cbd5e0; /* Light Gray */
+            --bg-secondary: #2d3748; /* Dark Gray */
+            --text-secondary: #e2e8f0; /* Gray */
+            --bg-accent: #f56565; /* Red */
+            --text-accent: #2d3748; /* Dark Gray */
+            --bg-neutral: #2d3748; /* Dark Gray */
+            --text-neutral: #cbd5e0; /* Light Gray */
+        }
+
         body {
             background-color: var(--bg-neutral);
             color: var(--text-neutral);
             transition: background-color 0.3s, color 0.3s;
         }
+
         .bg-primary {
             background-color: var(--bg-primary);
 
         }
 
         .text-primary {
-             color: var(--text-primary);
+            color: var(--text-primary);
         }
 
         .bg-secondary {
-            background-color: var(--bg-secondary); 
+            background-color: var(--bg-secondary);
         }
 
         .text-secondary {
@@ -58,7 +61,7 @@ body.dark-mode {
         }
 
         .bg-accent {
-            background-color: var(--bg-accent); 
+            background-color: var(--bg-accent);
         }
 
         .text-accent {
@@ -196,7 +199,8 @@ body.dark-mode {
     <h2 class="section-title">Profil RW</h2>
     <div class="text-center">
         <p class="text-lg text-neutral">
-            SIMRW adalah aplikasi yang membantu warga RW 05 Kelurahan Jatimulyo, Kecamatan Lowokwaru, Kota Malang untuk terhubung dan berkembang bersama.
+            SIMRW adalah aplikasi yang membantu warga RW 05 Kelurahan Jatimulyo, Kecamatan Lowokwaru, Kota Malang untuk
+            terhubung dan berkembang bersama.
             Aplikasi ini memudahkan kita semua dalam melakukan administrasi yang biasanya lumayan merepotkan.
         </p>
     </div>
@@ -214,7 +218,7 @@ body.dark-mode {
                         <h3>{{ $item->perihal }}</h3>
                         <p>Tempat : {{ $item->tempat }}</p>
                         <p>Acara : {{ $item->acara }}</p>
-                        <p>Tanggal : {{ date('d-m-Y', strtotime($item->tanggal)) }}</p> 
+                        <p>Tanggal : {{ date('d-m-Y', strtotime($item->tanggal)) }}</p>
                         <p>Waktu : {{ $item->pukul }} WIB</p>
                     </div>
                 @endif
@@ -256,7 +260,7 @@ body.dark-mode {
 <div class="bg-secondary">
     <section class=" shadow container mx-auto px-6 py-16">
         <div id="mapid" style="height: 400px;"></div>
-</section>
+    </section>
 
 </div>
 
@@ -305,12 +309,12 @@ body.dark-mode {
 
     var mymap = L.map('mapid').setView([-7.936885711016384, 112.61254034198969], 13);
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-}).addTo(mymap);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+    }).addTo(mymap);
 
-L.marker([-7.936885711016384, 112.61254034198969]).addTo(mymap)
-    .bindPopup("<b>RW 05 Kelurahan Jatimulyo</b>").openPopup();
+    L.marker([-7.936885711016384, 112.61254034198969]).addTo(mymap)
+        .bindPopup("<b>RW 05 Kelurahan Jatimulyo</b>").openPopup();
 
     function toggleDarkMode() {
         document.body.classList.toggle('dark-mode');
