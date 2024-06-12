@@ -174,7 +174,7 @@ body.dark-mode {
                 <a href="#" class="text-primary text-xl font-bold">SIMRW</a>
             </div>
             <div>
-                <button onclick="toggleDarkMode()" class="btn-login">Toggle Dark Mode</button>
+                <button onclick="toggleDarkMode()" class="btn-login">Ganti Mode Warna</button>
 
                 <a href="{{ route('filament.auth.login') }}" class="btn-login">Login</a>
             </div>
