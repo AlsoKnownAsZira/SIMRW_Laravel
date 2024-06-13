@@ -1,4 +1,5 @@
 <x-filament::page>
+    @hasanyrole('admin|RW|RT1|RT2')
     <h2 class="text-xl font-bold mb-4">Tabel Nilai Alternatif</h2>
 
     <div class="overflow-x-auto">
@@ -23,4 +24,7 @@
             </tbody>
         </table>
     </div>
+    @else
+        <h2 class="text-xl font-bold mb-4">Anda tidak memiliki akses untuk melihat halaman ini.</h2>
+        @endhasanyrole
 </x-filament::page>

@@ -2,15 +2,21 @@
 
 namespace App\Providers;
 
+ use App\Models\Alternatif;
  use App\Models\data_aduan;
  use App\Models\Inventori;
  use App\Models\kegiatan;
  use App\Models\Keuangan;
+ use App\Models\Kriteria;
+ use App\Models\NilaiAlternatif;
  use App\Models\Surat;
+ use App\Policies\AlternatifPolicy;
  use App\Policies\DataAduanPolicy;
  use App\Policies\InventoriPolicy;
  use App\Policies\KegiatanPolicy;
  use App\Policies\KeuanganPolicy;
+ use App\Policies\KriteriaPolicy;
+ use App\Policies\NilaiAlternatifPolicy;
  use App\Policies\SuratPolicy;
  use Illuminate\Support\Facades\Gate;
 use App\Models\User;
@@ -32,6 +38,9 @@ class AuthServiceProvider extends ServiceProvider
         kegiatan::class => KegiatanPolicy::class,
         Keuangan::class => KeuanganPolicy::class,
         Surat::class => SuratPolicy::class,
+        Kriteria::class => KriteriaPolicy::class,
+        Alternatif::class => AlternatifPolicy::class,
+        NilaiAlternatif::class => NilaiAlternatifPolicy::class
     ];
 
     /**
