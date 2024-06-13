@@ -301,7 +301,7 @@
     <div class="mt-8 flex flex-nowrap overflow-x-auto justify-center">
         <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/4 p-6">
             <div class="card">
-                <img src="{{ asset('/images/pejabat.jpg') }}" alt="Logo" class="h-80 w-full object-cover mx-auto">
+                <img src="{{ asset('/images/Pejabat.jpg') }}" alt="Logo" class="h-80 w-full object-cover mx-auto">
                 <h3>Wakil Ketua RW</h3>
                 <p><strong>Joko Widodo</strong></p>
             </div>
