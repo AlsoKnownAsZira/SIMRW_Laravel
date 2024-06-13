@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RW Landing Page</title>
-    @vite('resources/css/app.css')
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Additional custom styles can go here */
         .sticky {
@@ -228,33 +228,90 @@
 </section>
 
 <!-- Struktur Organisasi Section -->
-<section class="container mx-auto px-6 py-16">
+<section class="container mx-auto px-6 py-2">
     <h2 class="section-title">Struktur Organisasi</h2>
     <div class="mt-8 flex flex-wrap justify-center">
         <div class="w-full sm:w-1/2 lg:w-1/4 p-6">
             <div class="card">
+                <img src="{{ asset('/images/nopal.jpg') }}" alt="Logo" class="h-80 mx-auto">
                 <h3>Ketua RW</h3>
-                <p>Rusdi</p>
+                <p>Naufal</p>
+            </div>
+        </div>
+        
+    </div>
+</section>
+<section class="container mx-auto px-6 py-2">
+    <div class="mt-8 flex flex-wrap justify-center">
+        <div class="w-full sm:w-1/2 lg:w-1/4 p-6">
+            <div class="card">
+                <img src="{{ asset('/images/nopal.jpg') }}" alt="Logo" class="h-80 mx-auto">
+                <h3>Wakil Ketua RW</h3>
+                <p>Naufal</p>
             </div>
         </div>
         <div class="w-full sm:w-1/2 lg:w-1/4 p-6">
             <div class="card">
-                <h3>Ketua RT 01</h3>
-                <p>Farhan</p>
+                <img src="{{ asset('/images/nopal.jpg') }}" alt="Logo" class="h-80 mx-auto">
+                <h3>Sekretaris RW</h3>
+                <p>Naufal</p>
             </div>
         </div>
         <div class="w-full sm:w-1/2 lg:w-1/4 p-6">
             <div class="card">
-                <h3>Ketua RT 02</h3>
-                <p>Slamet</p>
+                <img src="{{ asset('/images/nopal.jpg') }}" alt="Logo" class="h-80 mx-auto">
+                <h3>Bendahara RW</h3>
+                <p>Naufal</p>
+            </div>
+        </div>
+        
+    </div>
+</section>
+<section class="container mx-auto px-6 py-2">
+    <div class="mt-8 flex flex-wrap justify-center">
+        <div class="w-full sm:w-1/2 lg:w-1/4 p-6">
+            <div class="card">
+                <img src="{{ asset('/images/nopal.jpg') }}" alt="Logo" class="h-80 mx-auto">
+                <h3>Ketua RT 1</h3>
+                <p>Naufal</p>
             </div>
         </div>
         <div class="w-full sm:w-1/2 lg:w-1/4 p-6">
             <div class="card">
-                <h3>Ketua RW 03</h3>
-                <p>Sutoyo</p>
+                <img src="{{ asset('/images/nopal.jpg') }}" alt="Logo" class="h-80 mx-auto">
+                <h3>Sekretaris RT 1</h3>
+                <p>Naufal</p>
             </div>
         </div>
+        <div class="w-full sm:w-1/2 lg:w-1/4 p-6">
+            <div class="card">
+                <img src="{{ asset('/images/nopal.jpg') }}" alt="Logo" class="h-80 mx-auto">
+                <h3>Bendahara RT 1</h3>
+                <p>Naufal</p>
+            </div>
+        </div>
+        <div class="w-full sm:w-1/2 lg:w-1/4 p-6">
+            <div class="card">
+                <img src="{{ asset('/images/nopal.jpg') }}" alt="Logo" class="h-80 mx-auto">
+                <h3>Ketua RT 2</h3>
+                <p>Naufal</p>
+            </div>
+        </div>
+        <div class="w-full sm:w-1/2 lg:w-1/4 p-6">
+            <div class="card">
+                <img src="{{ asset('/images/nopal.jpg') }}" alt="Logo" class="h-80 mx-auto">
+                <h3>Sekretaris RT 2</h3>
+                <p>Naufal</p>
+            </div>
+        </div>
+        <div class="w-full sm:w-1/2 lg:w-1/4 p-6">
+            <div class="card">
+                <img src="{{ asset('/images/nopal.jpg') }}" alt="Logo" class="h-80 mx-auto">
+                <h3>Bendahara RT 2</h3>
+                <p>Naufal</p>
+            </div>
+        </div>
+        
     </div>
 </section>
 <div class="bg-secondary">
