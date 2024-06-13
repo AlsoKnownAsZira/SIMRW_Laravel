@@ -160,7 +160,7 @@ class SuratResource extends Resource
         return [
             'index' => Pages\ListSurats::route('/'),
             'create' => Pages\CreateSurat::route('/create'),
-            'edit' => Pages\EditSurat::route('/{record}/edit'),
+//            'edit' => Pages\EditSurat::route('/{record}/edit'),
         ];
     }
 
