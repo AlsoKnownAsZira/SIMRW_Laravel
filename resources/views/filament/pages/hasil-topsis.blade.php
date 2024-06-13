@@ -1,4 +1,5 @@
 <x-filament::page>
+    @hasanyrole('admin|RW|RT1|RT2')
     <h2 class="text-xl font-bold mb-4">Hasil Perhitungan TOPSIS</h2>
 
     <!-- Matriks Normalisasi -->
@@ -6,22 +7,22 @@
     <div class="overflow-x-auto">
         <table class="table-auto w-full border-collapse border border-gray-200">
             <thead>
-                <tr>
-                    <th class="border border-gray-300 px-4 py-2">Alternatif</th>
-                    @foreach ($this->getKriterias() as $kriteria)
-                        <th class="border border-gray-300 px-4 py-2">{{ $kriteria->nama }}</th>
-                    @endforeach
-                </tr>
+            <tr>
+                <th class="border border-gray-300 px-4 py-2">Alternatif</th>
+                @foreach ($this->getKriterias() as $kriteria)
+                    <th class="border border-gray-300 px-4 py-2">{{ $kriteria->nama }}</th>
+                @endforeach
+            </tr>
             </thead>
             <tbody>
-                @foreach ($this->getHasil()['matriks_normalisasi'] as $alternatifId => $nilaiKriteria)
-                    <tr>
-                        <td class="border border-gray-300 px-4 py-2">{{ \App\Models\Alternatif::find($alternatifId)->nama }}</td>
-                        @foreach ($nilaiKriteria as $nilai)
-                            <td class="border border-gray-300 px-4 py-2">{{ $nilai }}</td>
-                        @endforeach
-                    </tr>
-                @endforeach
+            @foreach ($this->getHasil()['matriks_normalisasi'] as $alternatifId => $nilaiKriteria)
+                <tr>
+                    <td class="border border-gray-300 px-4 py-2">{{ \App\Models\Alternatif::find($alternatifId)->nama }}</td>
+                    @foreach ($nilaiKriteria as $nilai)
+                        <td class="border border-gray-300 px-4 py-2">{{ $nilai }}</td>
+                    @endforeach
+                </tr>
+            @endforeach
             </tbody>
         </table>
     </div>
@@ -31,22 +32,22 @@
     <div class="overflow-x-auto">
         <table class="table-auto w-full border-collapse border border-gray-200">
             <thead>
-                <tr>
-                    <th class="border border-gray-300 px-4 py-2">Alternatif</th>
-                    @foreach ($this->getKriterias() as $kriteria)
-                        <th class="border border-gray-300 px-4 py-2">{{ $kriteria->nama }}</th>
-                    @endforeach
-                </tr>
+            <tr>
+                <th class="border border-gray-300 px-4 py-2">Alternatif</th>
+                @foreach ($this->getKriterias() as $kriteria)
+                    <th class="border border-gray-300 px-4 py-2">{{ $kriteria->nama }}</th>
+                @endforeach
+            </tr>
             </thead>
             <tbody>
-                @foreach ($this->getHasil()['matriks_terbobot'] as $alternatifId => $nilaiKriteria)
-                    <tr>
-                        <td class="border border-gray-300 px-4 py-2">{{ \App\Models\Alternatif::find($alternatifId)->nama }}</td>
-                        @foreach ($nilaiKriteria as $nilai)
-                            <td class="border border-gray-300 px-4 py-2">{{ $nilai }}</td>
-                        @endforeach
-                    </tr>
-                @endforeach
+            @foreach ($this->getHasil()['matriks_terbobot'] as $alternatifId => $nilaiKriteria)
+                <tr>
+                    <td class="border border-gray-300 px-4 py-2">{{ \App\Models\Alternatif::find($alternatifId)->nama }}</td>
+                    @foreach ($nilaiKriteria as $nilai)
+                        <td class="border border-gray-300 px-4 py-2">{{ $nilai }}</td>
+                    @endforeach
+                </tr>
+            @endforeach
             </tbody>
         </table>
     </div>
@@ -56,20 +57,20 @@
     <div class="overflow-x-auto">
         <table class="table-auto w-full border-collapse border border-gray-200">
             <thead>
-                <tr>
-                    <th class="border border-gray-300 px-4 py-2">Kriteria</th>
-                    <th class="border border-gray-300 px-4 py-2">Ideal Positif</th>
-                    <th class="border border-gray-300 px-4 py-2">Ideal Negatif</th>
-                </tr>
+            <tr>
+                <th class="border border-gray-300 px-4 py-2">Kriteria</th>
+                <th class="border border-gray-300 px-4 py-2">Ideal Positif</th>
+                <th class="border border-gray-300 px-4 py-2">Ideal Negatif</th>
+            </tr>
             </thead>
             <tbody>
-                @foreach ($this->getKriterias() as $kriteria)
-                    <tr>
-                        <td class="border border-gray-300 px-4 py-2">{{ $kriteria->nama }}</td>
-                        <td class="border border-gray-300 px-4 py-2">{{ $this->getHasil()['ideal_positif'][$kriteria->id] }}</td>
-                        <td class="border border-gray-300 px-4 py-2">{{ $this->getHasil()['ideal_negatif'][$kriteria->id] }}</td>
-                    </tr>
-                @endforeach
+            @foreach ($this->getKriterias() as $kriteria)
+                <tr>
+                    <td class="border border-gray-300 px-4 py-2">{{ $kriteria->nama }}</td>
+                    <td class="border border-gray-300 px-4 py-2">{{ $this->getHasil()['ideal_positif'][$kriteria->id] }}</td>
+                    <td class="border border-gray-300 px-4 py-2">{{ $this->getHasil()['ideal_negatif'][$kriteria->id] }}</td>
+                </tr>
+            @endforeach
             </tbody>
         </table>
     </div>
@@ -79,20 +80,20 @@
     <div class="overflow-x-auto">
         <table class="table-auto w-full border-collapse border border-gray-200">
             <thead>
-                <tr>
-                    <th class="border border-gray-300 px-4 py-2">Alternatif</th>
-                    <th class="border border-gray-300 px-4 py-2">Jarak Positif</th>
-                    <th class="border border-gray-300 px-4 py-2">Jarak Negatif</th>
-                </tr>
+            <tr>
+                <th class="border border-gray-300 px-4 py-2">Alternatif</th>
+                <th class="border border-gray-300 px-4 py-2">Jarak Positif</th>
+                <th class="border border-gray-300 px-4 py-2">Jarak Negatif</th>
+            </tr>
             </thead>
             <tbody>
-                @foreach ($this->getHasil()['jarak_positif'] as $alternatifId => $jarakPositif)
-                    <tr>
-                        <td class="border border-gray-300 px-4 py-2">{{ \App\Models\Alternatif::find($alternatifId)->nama }}</td>
-                        <td class="border border-gray-300 px-4 py-2">{{ $jarakPositif }}</td>
-                        <td class="border border-gray-300 px-4 py-2">{{ $this->getHasil()['jarak_negatif'][$alternatifId] }}</td>
-                    </tr>
-                @endforeach
+            @foreach ($this->getHasil()['jarak_positif'] as $alternatifId => $jarakPositif)
+                <tr>
+                    <td class="border border-gray-300 px-4 py-2">{{ \App\Models\Alternatif::find($alternatifId)->nama }}</td>
+                    <td class="border border-gray-300 px-4 py-2">{{ $jarakPositif }}</td>
+                    <td class="border border-gray-300 px-4 py-2">{{ $this->getHasil()['jarak_negatif'][$alternatifId] }}</td>
+                </tr>
+            @endforeach
             </tbody>
         </table>
     </div>
@@ -104,24 +105,24 @@
         <div class="overflow-x-auto">
             <table class="table-auto w-full border-collapse border border-gray-200">
                 <thead>
-                    <tr>
-                        <th class="border border-gray-300 px-4 py-2">Alternatif</th>
-                        <th class="border border-gray-300 px-4 py-2">Nilai Preferensi</th>
-                        <th class="border border-gray-300 px-4 py-2">Rangking</th>
-                        <th class="border border-gray-300 px-4 py-2">Pilih</th>
-                    </tr>
+                <tr>
+                    <th class="border border-gray-300 px-4 py-2">Alternatif</th>
+                    <th class="border border-gray-300 px-4 py-2">Nilai Preferensi</th>
+                    <th class="border border-gray-300 px-4 py-2">Rangking</th>
+                    <th class="border border-gray-300 px-4 py-2">Pilih</th>
+                </tr>
                 </thead>
                 <tbody>
-                    @foreach ($this->getHasil()['preferensi'] as $alternatifId => $hasil)
-                        <tr>
-                            <td class="border border-gray-300 px-4 py-2">{{ \App\Models\Alternatif::find($alternatifId)->nama }}</td>
-                            <td class="border border-gray-300 px-4 py-2">{{ $hasil['nilai'] }}</td>
-                            <td class="border border-gray-300 px-4 py-2">{{ $hasil['ranking'] }}</td>
-                            <td class="border border-gray-300 px-4 py-2">
-                                <input type="checkbox" name="cetak[]" value="{{ $alternatifId }}">
-                            </td>
-                        </tr>
-                    @endforeach
+                @foreach ($this->getHasil()['preferensi'] as $alternatifId => $hasil)
+                    <tr>
+                        <td class="border border-gray-300 px-4 py-2">{{ \App\Models\Alternatif::find($alternatifId)->nama }}</td>
+                        <td class="border border-gray-300 px-4 py-2">{{ $hasil['nilai'] }}</td>
+                        <td class="border border-gray-300 px-4 py-2">{{ $hasil['ranking'] }}</td>
+                        <td class="border border-gray-300 px-4 py-2">
+                            <input type="checkbox" name="cetak[]" value="{{ $alternatifId }}">
+                        </td>
+                    </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>
@@ -129,4 +130,7 @@
             Cetak
         </button>
     </form>
+    @else
+        <h2 class="text-xl font-bold mb-4">Anda tidak memiliki akses untuk melihat halaman ini.</h2>
+        @endhasanyrole
 </x-filament::page>
