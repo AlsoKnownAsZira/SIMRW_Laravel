@@ -103,10 +103,22 @@
         }
 
         .hero {
-            background: linear-gradient(to right, #FF7D29, #FFBF78);
-            color: white;
-            padding: 4rem 0;
+            background-image: url('images/nopal.jpg'); /* Ganti dengan path gambar Anda */
+            background-size: cover; /* Menyesuaikan gambar agar menutupi seluruh area */
+            background-position: center; /* Menempatkan gambar di tengah */
+            background-repeat: no-repeat; /* Agar gambar tidak berulang */
+            height: 100vh; /* Menyesuaikan tinggi hero section dengan tinggi viewport */
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
+            color: white; /* Menyesuaikan warna teks agar kontras dengan gambar latar belakang */
+        }
+
+        .hero-container {
+            background: rgba(0, 0, 0, 0.5); /* Memberikan efek transparan pada container */
+            padding: 20px;
+            border-radius: 10px;
         }
 
         .hero h1 {
@@ -187,7 +199,7 @@
 
 <!-- Hero Section -->
 <header class="hero">
-    <div class="container mx-auto px-6">
+    <div class="container hero-container mx-auto px-6">
         <h1 class="font-bold">Selamat datang di SIMRW!<br>Welcome to SIMRW!</h1>
         <p>Menghubungkan warga berkembang bersama</p>
         <p>Connecting citizen growing together </p>
@@ -268,43 +280,43 @@
     </div>
 </section>
 <section class="container mx-auto px-6 py-2">
-    <div class="mt-8 flex flex-wrap justify-center">
-        <div class="w-full sm:w-1/2 lg:w-1/4 p-6">
+    <div class="mt-8 flex overflow-x-auto">
+        <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/4 p-6">
             <div class="card">
                 <img src="{{ asset('/images/nopal.jpg') }}" alt="Logo" class="h-80 mx-auto">
                 <h3>Ketua RT 1</h3>
                 <p>Naufal</p>
             </div>
         </div>
-        <div class="w-full sm:w-1/2 lg:w-1/4 p-6">
+        <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/4 p-6">
             <div class="card">
                 <img src="{{ asset('/images/nopal.jpg') }}" alt="Logo" class="h-80 mx-auto">
                 <h3>Sekretaris RT 1</h3>
                 <p>Naufal</p>
             </div>
         </div>
-        <div class="w-full sm:w-1/2 lg:w-1/4 p-6">
+        <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/4 p-6">
             <div class="card">
                 <img src="{{ asset('/images/nopal.jpg') }}" alt="Logo" class="h-80 mx-auto">
                 <h3>Bendahara RT 1</h3>
                 <p>Naufal</p>
             </div>
         </div>
-        <div class="w-full sm:w-1/2 lg:w-1/4 p-6">
+        <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/4 p-6">
             <div class="card">
                 <img src="{{ asset('/images/nopal.jpg') }}" alt="Logo" class="h-80 mx-auto">
                 <h3>Ketua RT 2</h3>
                 <p>Naufal</p>
             </div>
         </div>
-        <div class="w-full sm:w-1/2 lg:w-1/4 p-6">
+        <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/4 p-6">
             <div class="card">
                 <img src="{{ asset('/images/nopal.jpg') }}" alt="Logo" class="h-80 mx-auto">
                 <h3>Sekretaris RT 2</h3>
                 <p>Naufal</p>
             </div>
         </div>
-        <div class="w-full sm:w-1/2 lg:w-1/4 p-6">
+        <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/4 p-6">
             <div class="card">
                 <img src="{{ asset('/images/nopal.jpg') }}" alt="Logo" class="h-80 mx-auto">
                 <h3>Bendahara RT 2</h3>
