@@ -12,7 +12,7 @@ use App\Filament\Resources\KeuanganResource;
 class BlogPostsOverview extends Widget
 {
     protected static string $view = 'filament.widgets.blog-posts-overview';
-
+ 
     public $userCount;
     public $suratCount;
     public $inventoriCount;
