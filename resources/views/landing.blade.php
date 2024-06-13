@@ -291,7 +291,7 @@
             <div class="card">
                 <img src="{{ asset('/images/nopal.jpg') }}" alt="Logo" class="h-80 mx-auto">
                 <h3>Ketua RW</h3>
-                <p>Naufal</p>
+                <p><strong>Mohammad Naufal</strong></p>
             </div>
         </div>
         
@@ -301,23 +301,23 @@
     <div class="mt-8 flex flex-nowrap overflow-x-auto justify-center">
         <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/4 p-6">
             <div class="card">
-                <img src="{{ asset('/images/nopal.jpg') }}" alt="Logo" class="h-80 w-full object-cover mx-auto">
+                <img src="{{ asset('/images/pejabat.jpg') }}" alt="Logo" class="h-80 w-full object-cover mx-auto">
                 <h3>Wakil Ketua RW</h3>
-                <p>Naufal</p>
+                <p><strong>Joko Widodo</strong></p>
             </div>
         </div>
         <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/4 p-6">
             <div class="card">
-                <img src="{{ asset('/images/nopal.jpg') }}" alt="Logo" class="h-80 w-full object-cover mx-auto">
+                <img src="{{ asset('/images/pejabat2.jpg') }}" alt="Logo" class="h-80 w-full object-cover mx-auto">
                 <h3>Sekretaris RW</h3>
-                <p>Naufal</p>
+                <p><strong>Ahmad Fauzi</strong></p>
             </div>
         </div>
         <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/4 p-6">
             <div class="card">
-                <img src="{{ asset('/images/nopal.jpg') }}" alt="Logo" class="h-80 w-full object-cover mx-auto">
+                <img src="{{ asset('/images/pejabat3.jpg') }}" alt="Logo" class="h-80 w-full object-cover mx-auto">
                 <h3>Bendahara RW</h3>
-                <p>Naufal</p>
+                <p><strong>Eko Prasetyo</strong></p>
             </div>
         </div>
     </div>
@@ -326,44 +326,44 @@
     <div class="mt-8 flex overflow-x-auto">
         <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/4 p-6">
             <div class="card">
-                <img src="{{ asset('/images/nopal.jpg') }}" alt="Logo" class="h-80 mx-auto">
+                <img src="{{ asset('/images/pejabat5.jpg') }}" alt="Logo" class="h-80 mx-auto">
                 <h3>Ketua RT 1</h3>
-                <p>Naufal</p>
+                <p><strong>Budi Santoso</strong></p>
             </div>
         </div>
         <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/4 p-6">
             <div class="card">
-                <img src="{{ asset('/images/nopal.jpg') }}" alt="Logo" class="h-80 mx-auto">
+                <img src="{{ asset('/images/pejabat6.jpeg') }}" alt="Logo" class="h-80 mx-auto">
                 <h3>Sekretaris RT 1</h3>
-                <p>Naufal</p>
+                <p><strong>Siti Aminah</strong></p>
             </div>
         </div>
         <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/4 p-6">
             <div class="card">
-                <img src="{{ asset('/images/nopal.jpg') }}" alt="Logo" class="h-80 mx-auto">
+                <img src="{{ asset('/images/pejabat7.jpeg') }}" alt="Logo" class="h-80 mx-auto">
                 <h3>Bendahara RT 1</h3>
-                <p>Naufal</p>
+                <p><strong>Andi Susanto</strong></p>
             </div>
         </div>
         <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/4 p-6">
             <div class="card">
-                <img src="{{ asset('/images/nopal.jpg') }}" alt="Logo" class="h-80 mx-auto">
+                <img src="{{ asset('/images/pejabat8.jpeg') }}" alt="Logo" class="h-80 mx-auto">
                 <h3>Ketua RT 2</h3>
-                <p>Naufal</p>
+                <p><strong>Rini Wulandari</strong></p>
             </div>
         </div>
         <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/4 p-6">
             <div class="card">
-                <img src="{{ asset('/images/nopal.jpg') }}" alt="Logo" class="h-80 mx-auto">
+                <img src="{{ asset('/images/pejabat9.jpg') }}" alt="Logo" class="h-80 mx-auto">
                 <h3>Sekretaris RT 2</h3>
-                <p>Naufal</p>
+                <p><strong>Ahmad Bayu</strong></p>
             </div>
         </div>
         <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/4 p-6">
             <div class="card">
-                <img src="{{ asset('/images/nopal.jpg') }}" alt="Logo" class="h-80 mx-auto">
+                <img src="{{ asset('/images/pejabat10.jpg') }}" alt="Logo" class="h-80 mx-auto">
                 <h3>Bendahara RT 2</h3>
-                <p>Naufal</p>
+                <p><strong>Siti Rahmawati</strong></p>
             </div>
         </div>
         
