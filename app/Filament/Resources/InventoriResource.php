@@ -24,7 +24,7 @@ class InventoriResource extends Resource
     protected static ?string $model = Inventori::class;
 
     protected static ?string $navigationIcon = 'heroicon-s-archive';
-    
+
     public static function form(Form $form): Form
     {
         return $form
@@ -35,8 +35,7 @@ class InventoriResource extends Resource
                         TextInput::make('jumlah')->required()->numeric(),
                         TextInput::make('deskripsi'),
                         // RichEditor::make('deskripsi'),
-                        FileUpload::make('gambar')
-                            ->image(),
+                        FileUpload::make('gambar')->directory('inventory')->visibility('public'),
                     ])
                     ->columns(1),
             ]);
@@ -49,28 +48,28 @@ class InventoriResource extends Resource
                 TextColumn::make('nama')->sortable()->searchable(),
                 TextColumn::make('jumlah')->sortable(),
                 TextColumn::make('deskripsi'),
-               ImageColumn::make('gambar'),
+                ImageColumn::make('gambar')
             ])
             ->filters([
                 //
             ])
-            ->actions([  Tables\Actions\ViewAction::make(),
+            ->actions([Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
-              
+
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
@@ -78,5 +77,5 @@ class InventoriResource extends Resource
             'create' => Pages\CreateInventori::route('/create'),
             'edit' => Pages\EditInventori::route('/{record}/edit'),
         ];
-    }    
+    }
 }
