@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RW Landing Page</title>
+    <title>Selamat datang di RW 5</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Additional custom styles can go here */
@@ -103,16 +105,30 @@
         }
 
         .hero {
-            background-image: url('images/nopal.jpg'); /* Ganti dengan path gambar Anda */
-            background-size: cover; /* Menyesuaikan gambar agar menutupi seluruh area */
-            background-position: center; /* Menempatkan gambar di tengah */
-            background-repeat: no-repeat; /* Agar gambar tidak berulang */
-            height: 100vh; /* Menyesuaikan tinggi hero section dengan tinggi viewport */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+
+}
+
+
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            color: white; /* Menyesuaikan warna teks agar kontras dengan gambar latar belakang */
+            background: #0000002f; /* Fallback color */
         }
 
         .hero-container {
@@ -199,12 +215,40 @@
 
 <!-- Hero Section -->
 <header class="hero">
-    <div class="container hero-container mx-auto px-6">
-        <h1 class="font-bold">Selamat datang di SIMRW!<br>Welcome to SIMRW!</h1>
-        <p>Menghubungkan warga berkembang bersama</p>
-        <p>Connecting citizen growing together </p>
-    </div>
-</header>
+    <div class="swiper-container">
+          <div class="swiper-wrapper">        
+              <div class="swiper-slide" style="background-image: url({{ asset('/images/kegiatan1.jpg') }}); background-size: cover; background-repeat: no-repeat; background-position: center;">
+                  <div class=" w-full text-center bg-black bg-opacity-75 text-white p-4">
+                    <h1 class="font-bold text-white">Selamat datang di SIMRW!<br>Welcome to SIMRW!</h1>
+                    <p class="text-white">Menghubungkan warga berkembang bersama</p>
+                    <p class="text-white">Connecting citizen growing together </p>
+               
+                  </div>
+              </div>
+              <div class="swiper-slide" style="background-image: url({{ asset('/images/kegiatan2.jpeg') }}); background-size: cover; background-repeat: no-repeat; background-position: center;">
+                  <div class="w-full text-center bg-black bg-opacity-75 text-white p-4">
+                    <h1 class="font-bold text-white">Selamat datang di SIMRW!<br>Welcome to SIMRW!</h1>
+                    <p class="text-white">Menghubungkan warga berkembang bersama</p>
+                    <p class="text-white">Connecting citizen growing together </p>
+               
+                  </div>
+              </div>
+              <div class="swiper-slide" style="background-image: url({{ asset('/images/kegiatan3.jpg') }}); background-size: cover; background-repeat: no-repeat; background-position: center;">
+                  <div class="w-full text-center bg-black bg-opacity-75 text-white p-4">
+                    <h1 class="font-bold text-white">Selamat datang di SIMRW!<br>Welcome to SIMRW!</h1>
+                    <p class="text-white">Menghubungkan warga berkembang bersama</p>
+                    <p class="text-white">Connecting citizen growing together </p>
+               
+                  </div>
+              </div>
+          </div>
+          <!-- Add Pagination -->
+          <div class="swiper-pagination"></div>
+          <!-- Add Navigation -->
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+      </div>
+  </header>
 
 <!-- Profil RW Section -->
 <section class="container mx-auto px-6 py-16">
@@ -254,29 +298,28 @@
     </div>
 </section>
 <section class="container mx-auto px-6 py-2">
-    <div class="mt-8 flex flex-wrap justify-center">
-        <div class="w-full sm:w-1/2 lg:w-1/4 p-6">
+    <div class="mt-8 flex flex-nowrap overflow-x-auto justify-center">
+        <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/4 p-6">
             <div class="card">
-                <img src="{{ asset('/images/nopal.jpg') }}" alt="Logo" class="h-80 mx-auto">
+                <img src="{{ asset('/images/nopal.jpg') }}" alt="Logo" class="h-80 w-full object-cover mx-auto">
                 <h3>Wakil Ketua RW</h3>
                 <p>Naufal</p>
             </div>
         </div>
-        <div class="w-full sm:w-1/2 lg:w-1/4 p-6">
+        <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/4 p-6">
             <div class="card">
-                <img src="{{ asset('/images/nopal.jpg') }}" alt="Logo" class="h-80 mx-auto">
+                <img src="{{ asset('/images/nopal.jpg') }}" alt="Logo" class="h-80 w-full object-cover mx-auto">
                 <h3>Sekretaris RW</h3>
                 <p>Naufal</p>
             </div>
         </div>
-        <div class="w-full sm:w-1/2 lg:w-1/4 p-6">
+        <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/4 p-6">
             <div class="card">
-                <img src="{{ asset('/images/nopal.jpg') }}" alt="Logo" class="h-80 mx-auto">
+                <img src="{{ asset('/images/nopal.jpg') }}" alt="Logo" class="h-80 w-full object-cover mx-auto">
                 <h3>Bendahara RW</h3>
                 <p>Naufal</p>
             </div>
         </div>
-        
     </div>
 </section>
 <section class="container mx-auto px-6 py-2">
@@ -388,6 +431,19 @@
     function toggleDarkMode() {
         document.body.classList.toggle('dark-mode');
     }
+    new Swiper('.swiper-container', {
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    autoplay: {
+   delay: 5000,
+ },
+});
 </script>
 
 </body>
