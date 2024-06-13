@@ -9,7 +9,6 @@ class Kriteria extends Model
 {
     use HasFactory;
 
-    protected $table = 'kriterias';
     protected $fillable = ['nama', 'bobot', 'is_benefit'];
 
     public function nilaiAlternatif()

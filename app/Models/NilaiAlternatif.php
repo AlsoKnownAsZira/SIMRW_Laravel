@@ -9,22 +9,15 @@ class NilaiAlternatif extends Model
 {
     use HasFactory;
 
-    protected $table = 'nilai_alternatifs';
-
     protected $fillable = ['alternatif_id', 'kriteria_id', 'nilai'];
 
-    public function alternatif(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function alternatif()
     {
         return $this->belongsTo(Alternatif::class, 'alternatif_id');
     }
 
-    public function kriteria(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function kriteria()
     {
         return $this->belongsTo(Kriteria::class, 'kriteria_id');
     }
-
-//    public function nilaiAlternatifs(): \Illuminate\Database\Eloquent\Relations\HasMany
-//    {
-//        return $this->hasMany(NilaiAlternatif::class, 'alternatif_id');
-//    }
 }

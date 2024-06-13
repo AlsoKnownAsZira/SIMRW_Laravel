@@ -39,7 +39,7 @@ class KriteriaResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('nama')->label('Nama Kriteria'),
+                Tables\Columns\TextColumn::make('nama')->label('Nama Kriteria')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('bobot')->label('Bobot Kriteria'),
                 Tables\Columns\TextColumn::make('is_benefit')->label('Benefit'),
 

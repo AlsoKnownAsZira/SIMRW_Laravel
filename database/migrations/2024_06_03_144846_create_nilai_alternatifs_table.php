@@ -18,7 +18,6 @@ return new class extends Migration
             $table->float('nilai');
             $table->timestamps();
         });
-
     }
 
     /**

@@ -35,8 +35,7 @@ class AlternatifResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('id'),
-                Tables\Columns\TextColumn::make('nama')
+                Tables\Columns\TextColumn::make('nama')->sortable()->searchable(),
             ])
             ->filters([
                 //

@@ -15,7 +15,13 @@ class AlternatifSeeder extends Seeder
     public function run()
     {
         // Data alternatif
-        $alternatif = ['Asep', 'Wawan', 'Sutoyo', 'Wahyu', 'Marni'];
+        $alternatif = [
+            'Budi Santoso', 'Siti Aminah', 'Joko Widodo', 'Ahmad Fauzi', 'Dewi Sartika',
+            'Rina Wulandari', 'Eko Prasetyo', 'Andi Susanto', 'Rudi Hartono', 'Sri Wahyuni',
+            'Eka Surya', 'Agus Santoso', 'Rini Wulandari', 'Ahmad Bayu', 'Yanto Budiman',
+            'Robby Kurniawan', 'Diana Sari', 'Irfan Saputra', 'Anisa Dewi', 'Ahmad Rifai',
+            'Siti Rahmawati', 'Fahmi Setiawan', 'Rani Febrianti', 'Farhan Maulana', 'Lia Indah'
+        ];
 
         // Memasukkan data ke dalam tabel alternatif
         foreach ($alternatif as $nama) {

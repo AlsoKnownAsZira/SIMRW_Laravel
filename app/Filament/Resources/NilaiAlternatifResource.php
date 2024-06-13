@@ -8,7 +8,6 @@ use App\Models\Alternatif;
 use App\Models\Kriteria;
 use App\Models\NilaiAlternatif;
 use Filament\Forms;
-use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\Form;
@@ -18,61 +17,53 @@ use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Closure;
 
 class NilaiAlternatifResource extends Resource
 {
     protected static ?string $model = NilaiAlternatif::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
-    protected static ?int $navigationSort = 3;
+    protected static ?int $navigationSort = 4;
     protected static ?string $navigationGroup = 'Bantuan Sosial';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
+                TextInput::make('nilai')->label('Nilai')->required(),
                 Select::make('alternatif_id')
                     ->label('Alternatif')
                     ->relationship('alternatif', 'nama')
-                    ->required(),
+                    ->reactive()
+                    ->required()
+                    ->afterStateUpdated(fn (Closure $set, $state) => $set('kriteria_id', null)), // Reset kriteria when alternatif changes
 
-                Repeater::make('nilai_kriterias')
-                    ->label('Nilai Kriteria')
-                    ->schema([
-                        Select::make('kriteria_id')
-                            ->label('Kriteria')
-                            ->relationship('kriteria', 'nama')
-                            ->required(),
-                        TextInput::make('nilai')
-                            ->label('Nilai')
-                            ->required(),
-                    ])
-                    ->minItems(1)
-                    ->createItemButtonLabel('Tambah Kriteria')
+                Select::make('kriteria_id')
+                    ->label('Kriteria')
+                    ->relationship('kriteria', 'nama')
+                    ->required()
+                    ->options(function (Closure $get) {
+                        $alternatifId = $get('alternatif_id');
+                        if (!$alternatifId) {
+                            return Kriteria::all()->pluck('nama', 'id');
+                        }
+
+                        $existingKriteriaIds = NilaiAlternatif::where('alternatif_id', $alternatifId)->pluck('kriteria_id');
+                        return Kriteria::whereNotIn('id', $existingKriteriaIds)->pluck('nama', 'id');
+                    })
+                    ->disabled(fn (Closure $get) => !$get('alternatif_id')), // Disable if no alternatif is selected
             ]);
     }
 
     public static function table(Table $table): Table
     {
-        $kriterias = Kriteria::all();
-
         return $table
-            ->columns(array_merge([
+            ->columns([
                 TextColumn::make('alternatif.nama')->label('Alternatif')->sortable()->searchable(),
-            ],
-                $kriterias->map(function ($kriteria) {
-                    return TextColumn::make("kriteria_{$kriteria->id}.nilai")
-                        ->label($kriteria->nama)
-                        ->sortable()
-                        ->getStateUsing(function ($record) use ($kriteria) {
-                            $nilai = NilaiAlternatif::where('alternatif_id', $record->id)
-                                ->where('kriteria_id', $kriteria->id)
-                                ->first()
-                                ;
-                            return $nilai ? $nilai->nilai : '-';
-                        });
-                })
-                    ->toArray()))
+                TextColumn::make('kriteria.nama')->label('Kriteria'),
+                TextColumn::make('nilai')->label('Nilai'),
+            ])
             ->filters([
                 //
             ])

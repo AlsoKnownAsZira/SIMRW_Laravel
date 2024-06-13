@@ -1,179 +1,158 @@
+@php
+
+use Dompdf\Dompdf;
+
+$dompdf = new Dompdf();
+$imagePath = public_path('images/malang.png');
+$imageData = base64_encode(file_get_contents($imagePath));
+$imageBase64 = 'data:image/jpg;base64,' . $imageData;
+
+@endphp
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Hasil Bansos</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
+            font-family: 'Times New Roman', Times, serif;
+            line-height: 1.4;
         }
+
+        .header, .footer {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            /* text-align: center; */
+        }
+
+        .header img.logo {
+            width: 100px;
+            height: auto;
+            margin-top: 10px;
+            float: left;
+        }
+
+        .header-text {
+            margin-right: 100px;
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .header-text h2,
+        .header-text h3,
+        .header-text p {
+            margin: 5px 0;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            margin: 0 50px;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 20px;
-            page-break-inside: auto;
         }
-        table, th, td {
-            border: 1px solid black;
+
+        .table-no-border, .table-no-border th, .table-no-border td {
+            border: none;
         }
-        th, td {
-            padding: 8px;
-            text-align: left;
-        }
-        h2, h3 {
-            margin-top: 20px;
-        }
-        tr {
-            page-break-inside: avoid;
-            page-break-after: auto;
-        }
-        .page-break {
-            page-break-before: always;
+
+        .signature {
+            width: 50%;
+            text-align: right;
         }
     </style>
+
 </head>
 <body>
-    <h1>SURAT PERNYATAAN</h1>
+<div class="container">
+    <div class="header">
+        <img class="logo" src="{{ $imageBase64 }}" alt="Logo" />
+        <div class="header-text">
+            <h4>PEMERINTAH DESA JATIMULYO</h4>
+            <h4>KECAMATAN LOWOKWARU KOTA MALANG</h4>
+            <h3><b>RUKUN WARGA 05</b></h3>
+        </div>
+    </div>
+    <hr>
+    <div class="title">
+        <h3><u>Surat Pernyataan</u></h3>
+        <h3><u>Bantuan Sosial</u></h3>
+    </div>
+    <div class="content">
+        <p>Perihal  : Penerima Bantuan Sosial</p>
+        <p>Lampiran : 1</p>
 
-    <p>Nomor: [Nomor Surat]</p>
+        <p>Kepada Yth,</p>
+        <p>Bapak/Ibu Warga RW 05</p>
+        <p>Di Tempat</p>
+        <p>Dengan Hormat,</p>
+        <p>
+            Dengan ini kami selaku pengurus Bantuan Sosial Warga RW 05 memberitahukan bahwa yang berhak menerima
+            Bantuan Sosial adalah sebagai berikut:
+        </p>
+        <h2>Nama: {{ $nama }}</h2>
 
-    <p>Saya yang bertanda tangan di bawah ini:</p>
+        <p>Demikian surat ini kami sampaikan. Atas perhatian dan kehadirannya kami ucapkan terimakasih.</p>
 
-    <p>Nama: [Nama Lengkap]</p>
-    <p>Tempat/Tanggal Lahir: [Tempat, Tanggal Lahir]</p>
-    <p>NIK: [Nomor Induk Kependudukan]</p>
-    <p>Alamat: [Alamat Lengkap]</p>
-    <p>Pekerjaan: [Pekerjaan]</p>
-
-    <p>Dengan ini menyatakan bahwa saya:</p>
-    <ul>
-        <li>Tidak memiliki penghasilan tetap atau memiliki penghasilan yang tidak mencukupi untuk memenuhi kebutuhan dasar sehari-hari.</li>
-        <li>Bertanggung jawab atas [jumlah] tanggungan keluarga yang terdiri dari [jumlah] anak dan [jumlah] anggota keluarga lainnya.</li>
-        <li>Tinggal di rumah dengan kondisi fisik yang tidak layak huni, dengan jenis lantai [sebutkan jenis lantai, misalnya tanah/semen].</li>
-        <li>Membayar biaya listrik per bulan sebesar [jumlah biaya] yang cukup membebani keuangan keluarga.</li>
-        <li>Bekerja sebagai [pekerjaan] dengan penghasilan yang tidak mencukupi untuk kehidupan sehari-hari.</li>
-        <li>Berusia [usia] tahun yang menjadikan saya tergolong dalam kelompok rentan.</li>
-        <li>Memiliki cacat fisik berupa [sebutkan jenis cacat fisik, jika ada].</li>
-    </ul>
-
-    <p>Berdasarkan kondisi tersebut, saya dengan ini menyatakan bahwa saya berhak untuk menerima bantuan sosial dari [Nama Lembaga/Pemerintah Daerah] untuk membantu meringankan beban ekonomi keluarga saya.</p>
-
-    <p>Saya bersedia memberikan informasi lebih lanjut dan menerima kunjungan untuk verifikasi apabila diperlukan. Segala informasi yang saya berikan adalah benar adanya, dan saya bersedia menerima sanksi sesuai peraturan yang berlaku apabila terbukti memberikan informasi yang tidak benar.</p>
-
-    <p>Demikian surat pernyataan ini saya buat dengan sebenar-benarnya untuk digunakan sebagaimana mestinya.</p>
-
-    <p>[Tempat], [Tanggal]</p>
-
-    <p>Hormat saya,</p>
-    <p>[Nama Lengkap]</p>
-
-    <p>Mengetahui:</p>
-
-    <p>[Nama Kepala Desa/Lurah]</p>
-    <p>Kepala Desa/Lurah</p>
-    <p>[Tanda Tangan & Stempel]</p>
+        <div class="signature">
+            Mengetahui,<br>
+            Ketua RW 05<br><br><br><br>
+            .................................
+        </div>
+    </div>
 
     <div class="page-break"></div>
 
-    <h1>Lampiran: Hasil Perhitungan TOPSIS</h1>
-    @foreach ($alternatifData as $data)
-        <h2>Alternatif: {{ $data['nama'] }}</h2>
+    <div class="content">
+        <h1>Lampiran: Hasil Perhitungan TOPSIS</h1>
+        @foreach ($alternatifData as $altData)
+            <h2>Alternatif: {{ $altData['nama'] }}</h2>
 
-        <!-- Matriks Normalisasi -->
-        <h3>Matriks Normalisasi</h3>
+            <!-- Nilai Preferensi -->
+            <h3>Nilai Preferensi dan Rangking</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nilai Preferensi</th>
+                        <th>Rangking</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ $altData['nilai_preferensi'] }}</td>
+                        <td>{{ $altData['rangking'] }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        @endforeach
+
+        <!-- Solusi Ideal -->
+        <h2>Solusi Ideal</h2>
         <table>
             <thead>
                 <tr>
-                    @foreach ($kriterias as $kriteria)
-                        <th>{{ $kriteria->nama }}</th>
-                    @endforeach
+                    <th>Kriteria</th>
+                    <th>Ideal Positif</th>
+                    <th>Ideal Negatif</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    @foreach ($data['matriks_normalisasi'] as $nilai)
-                        <td>{{ $nilai }}</td>
-                    @endforeach
-                </tr>
+                @foreach ($kriterias as $kriteria)
+                    <tr>
+                        <td>{{ $kriteria->nama }}</td>
+                        <td>{{ $ideal_positif[$kriteria->id] }}</td>
+                        <td>{{ $ideal_negatif[$kriteria->id] }}</td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
-
-        <!-- Matriks Terbobot -->
-        <h3>Matriks Terbobot</h3>
-        <table>
-            <thead>
-                <tr>
-                    @foreach ($kriterias as $kriteria)
-                        <th>{{ $kriteria->nama }}</th>
-                    @endforeach
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    @foreach ($data['matriks_terbobot'] as $nilai)
-                        <td>{{ $nilai }}</td>
-                    @endforeach
-                </tr>
-            </tbody>
-        </table>
-
-        <!-- Jarak ke Solusi Ideal -->
-        <h3>Jarak ke Solusi Ideal</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>Jarak Positif</th>
-                    <th>Jarak Negatif</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>{{ $data['jarak_positif'] }}</td>
-                    <td>{{ $data['jarak_negatif'] }}</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <!-- Nilai Preferensi -->
-        <h3>Nilai Preferensi dan Rangking</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>Nilai Preferensi</th>
-                    <th>Rangking</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>{{ $data['nilai_preferensi'] }}</td>
-                    <td>{{ $data['rangking'] }}</td>
-                </tr>
-            </tbody>
-        </table>
-    @endforeach
-
-    <!-- Solusi Ideal -->
-    <h2>Solusi Ideal</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Kriteria</th>
-                <th>Ideal Positif</th>
-                <th>Ideal Negatif</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($kriterias as $kriteria)
-                <tr>
-                    <td>{{ $kriteria->nama }}</td>
-                    <td>{{ $ideal_positif[$kriteria->id] }}</td>
-                    <td>{{ $ideal_negatif[$kriteria->id] }}</td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
+    </div>
+</div>
 </body>
 </html>
