@@ -1,5 +1,5 @@
 <x-filament::page>
-    @hasanyrole('admin|RW|RT1|RT2')
+{{--    @hasanyrole('admin|RW|RT1|RT2')--}}
     <h2 class="text-xl font-bold mb-4">Hasil Perhitungan TOPSIS</h2>
 
     <!-- Matriks Normalisasi -->
@@ -130,7 +130,7 @@
             Cetak
         </button>
     </form>
-    @else
-        <h2 class="text-xl font-bold mb-4">Anda tidak memiliki akses untuk melihat halaman ini.</h2>
-        @endhasanyrole
+{{--    @else--}}
+{{--        <h2 class="text-xl font-bold mb-4">Anda tidak memiliki akses untuk melihat halaman ini.</h2>--}}
+{{--        @endhasanyrole--}}
 </x-filament::page>
